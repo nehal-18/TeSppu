@@ -5,6 +5,7 @@ class pass1
 		public static void main(String args[])throws java.lang.Exception
 	{
 		FileReader FP=new FileReader("input.txt");
+		//keep input file where ur IDE stores other programs	
 		BufferedReader bufferedReader = new BufferedReader(FP);		
 		
 		String line=null;
