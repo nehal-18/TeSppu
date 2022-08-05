@@ -1,12 +1,10 @@
 import java.io.*;
-import java.util.*;
-import java.lang.*;
 
 class pass1
 {
-	public static void main(String args[])throws Exception
+		public static void main(String args[])throws java.lang.Exception
 	{
-		FileReader FP=new FileReader(input.txt);
+		FileReader FP=new FileReader("input.txt");
 		BufferedReader bufferedReader = new BufferedReader(FP);		
 		
 		String line=null;
@@ -18,26 +16,26 @@ class pass1
 		 String OpTab[][]=new String[MAX][3];
 		 String LitTab[][]=new String[MAX][2];
 		 int PoolTab[]=new int[MAX];
-		 int litTabAddress=0;
-
-		 System.out.println(___________________________________________________);
+		// int litTabAddress=0;
+/*---------------------------------------------------------------------------------------------------------------------------------------------- */
+		 System.out.println("___________________________________________________");
 		    while((line = bufferedReader.readLine()) != null)
 		     {
-		     	 String[] tokens = line.split(t);
+		     	 String[] tokens = line.split("\t");
 		     	if(line_count==0)
 		     	{
 		     	   //set LC to operand of START
 		     		LC=Integer.parseInt(tokens[1]);					
-		     		for(int i=0;itokens.length;i++)		//for printing the input program
-		     	 		System.out.print(tokens[i]+t);
+		     		for(int i=0;i<tokens.length;i++)		//for printing the input program
+		     	 		System.out.print(tokens[i]+"\t");
 		     	 	System.out.println();
 		     	}
 		     	else
 		     	{
-			     	 for(int i=0;itokens.length;i++)    //for printing the input program
-			     	 	System.out.print(tokens[i]+t);
-			     	 System.out.println();
-			     	if(!tokens[0].equals())
+			     	 for(int i=0;i<tokens.length;i++)    //for printing the input program
+			     	 	System.out.print(tokens[i]+"\t");
+			     	 System.out.println("");
+			     	if(!tokens[0].equals(""))
 			     	{
 			 
 			     		//Inserting into Symbol Table
@@ -46,7 +44,7 @@ class pass1
 			     		SymbolTab[symTabLine][2]=Integer.toString(1);
 			     		symTabLine++;
 			     	}
-				else if(tokens[1].equalsIgnoreCase(DS)tokens[1].equalsIgnoreCase(DC))
+				else if(tokens[1].equalsIgnoreCase("DS")||tokens[1].equalsIgnoreCase("DC"))
 				{
 					//Entry into symbol table for declarative statements
 					SymbolTab[symTabLine][0]=tokens[0];
@@ -57,31 +55,30 @@ class pass1
 
 				if(tokens.length==3 && tokens[2].charAt(0)=='=')
 				{
-					Entry of literals into literal table
+				//	Entry of literals into literal table
 					LitTab[litTabLine][0]=tokens[2];
 			     		LitTab[litTabLine][1]=Integer.toString(LC);
 			     		litTabLine++;
 				}
 	
-				else if(tokens[1]!=null)
-				{
-						Entry of Mnemonic in opcode table
+				else if(tokens[1]!=null){
+				//Entry of Mnemonic in opcode table
 					OpTab[opTabLine][0]=tokens[1];
-					
-					if(tokens[1].equalsIgnoreCase(START)tokens[1].equalsIgnoreCase(END)tokens[1].equalsIgnoreCase(ORIGIN)tokens[1].equalsIgnoreCase(EQU)tokens[1].equalsIgnoreCase(LTORG))		if Assembler Directive
+					if(tokens[1].equalsIgnoreCase("START")||tokens[1].equalsIgnoreCase("END")||tokens[1].equalsIgnoreCase("ORIGIN")||tokens[1].equalsIgnoreCase("EQU")||tokens[1].equalsIgnoreCase("LTORG"))		
+					// Assembler Directive
 					{
-			     			OpTab[opTabLine][1]=AD;
-						OpTab[opTabLine][2]=R11;					
+			     			OpTab[opTabLine][1]="AD";
+						OpTab[opTabLine][2]="R11";					
 					}			     	
-					else if(tokens[1].equalsIgnoreCase(DS)tokens[1].equalsIgnoreCase(DC))
+					else if(tokens[1].equalsIgnoreCase("DS")||tokens[1].equalsIgnoreCase("DC"))
 					{
-						OpTab[opTabLine][1]=DL;
-						OpTab[opTabLine][2]=R7;					
+						OpTab[opTabLine][1]="DL";
+						OpTab[opTabLine][2]="R7";					
 					}
 					else
 					{
-						OpTab[opTabLine][1]=IS;
-						OpTab[opTabLine][2]=(04,1);
+						OpTab[opTabLine][1]="IS";
+						OpTab[opTabLine][2]="(04,1)";
 					}
 			     	opTabLine++;
 				}
@@ -90,48 +87,49 @@ class pass1
 		        LC++;
 		    }   
 
-			System.out.println(___________________________________________________);  
+			System.out.println("___________________________________________________");  
 
 			//print symbol table
-			System.out.println(nn	SYMBOL TABLE		);
-			System.out.println(--------------------------);			
-			System.out.println(SYMBOLtADDRESStLENGTH);
-			System.out.println(--------------------------);			
-			for(int i=0;isymTabLine;i++)
-				System.out.println(SymbolTab[i][0]+t+SymbolTab[i][1]+t+SymbolTab[i][2]);
-			System.out.println(--------------------------);
+			System.out.println("\n\n	SYMBOL TABLE	");
+			System.out.println("--------------------------");			
+			System.out.println("SYMBOL\tADDRESS\tLENGTH");
+			System.out.println("--------------------------");			
+			for(int i=0;i<symTabLine;i++)
+				System.out.println(SymbolTab[i][0]+"\t"+SymbolTab[i][1]+"\t"+SymbolTab[i][2]);
+			System.out.println("--------------------------");
 
 
 			//print opcode table
-			System.out.println(nn	OPCODE TABLE		);
-			System.out.println(----------------------------);			
-			System.out.println(MNEMONICtCLASStINFO);
-			System.out.println(----------------------------);			
-			for(int i=0;iopTabLine;i++)
-				System.out.println(OpTab[i][0]+tt+OpTab[i][1]+t+OpTab[i][2]);
-			System.out.println(----------------------------);
+			System.out.println("\n\n	OPCODE TABLE		");
+			System.out.println("----------------------------");			
+			System.out.println("MNEMONIC\tCLASStINFO");
+			System.out.println("----------------------------");			
+			for(int i=0;i<opTabLine;i++)
+				System.out.println(OpTab[i][0]+"\t\t"+OpTab[i][1]+"\t"+OpTab[i][2]);
+			System.out.println("----------------------------");
 
 			//print literal table
-			System.out.println(nn   LITERAL TABLE		);
-			System.out.println(-----------------);			
-			System.out.println(LITERALtADDRESS);
-			System.out.println(-----------------);			
-			for(int i=0;ilitTabLine;i++)
-				System.out.println(LitTab[i][0]+t+LitTab[i][1]);
-			System.out.println(------------------);
+			System.out.println("\n\n   LITERAL TABLE	");
+			System.out.println("-----------------");			
+			System.out.println("LITERAL\tADDRESS");
+			System.out.println("-----------------");			
+			for(int i=0;i<litTabLine;i++)
+				System.out.println(LitTab[i][0]+"\t"+LitTab[i][1]);
+			System.out.println("------------------");
 	
 
 			//intialization of POOLTAB
-			for(int i=0;ilitTabLine;i++)
+			for(int i=0;i<litTabLine;i++)
 			{
-				if(LitTab[i][0]!=null && LitTab[i+1][0]!=null ) if literals are present
+				if(LitTab[i][0]!=null && LitTab[i+1][0]!=null ) 
+				//if literals are present
 				{
 					if(i==0)
 					{
 						PoolTab[poolTabLine]=i+1;
 						poolTabLine++;
 					}
-					else if(Integer.parseInt(LitTab[i][1])(Integer.parseInt(LitTab[i+1][1]))-1)
+					else if(Integer.parseInt(LitTab[i][1])<(Integer.parseInt(LitTab[i+1][1]))-1)
 					{	
 						PoolTab[poolTabLine]=i+2;
 						poolTabLine++;
@@ -139,13 +137,13 @@ class pass1
 				}
 			}
 			//print pool table
-			System.out.println(nn   POOL TABLE		);
-			System.out.println(-----------------);			
-			System.out.println(LITERAL NUMBER);
-			System.out.println(-----------------);			
-			for(int i=0;ipoolTabLine;i++)
+			System.out.println("\n\n   POOL TABLE		");
+			System.out.println("-----------------");			
+			System.out.println("LITERAL NUMBER");
+			System.out.println("-----------------");			
+			for(int i=0;i<poolTabLine;i++)
 			    System.out.println(PoolTab[i]);
-			System.out.println(------------------);
+			System.out.println("------------------");
 			
 		
 		   // Always close files.
