@@ -26,14 +26,16 @@ class pass1
 		     	if(line_count==0)
 		     	{
 		     	   //set LC to operand of START
-		     		LC=Integer.parseInt(tokens[1]);					
-		     		for(int i=0;i<tokens.length;i++)		//for printing the input program
+		     		LC=Integer.parseInt(tokens[1]);
+				//for printing the input program
+		     		for(int i=0;i<tokens.length;i++)		
 		     	 		System.out.print(tokens[i]+"\t");
 		     	 	System.out.println();
 		     	}
 		     	else
 		     	{
-			     	 for(int i=0;i<tokens.length;i++)    //for printing the input program
+				//for printing the input program
+			     	 for(int i=0;i<tokens.length;i++)   
 			     	 	System.out.print(tokens[i]+"\t");
 			     	 System.out.println("");
 			     	if(!tokens[0].equals(""))
@@ -101,7 +103,7 @@ class pass1
 
 
 			//print opcode table
-			System.out.println("\n\n	OPCODE TABLE		");
+			System.out.println("\n\n OPCODE TABLE");
 			System.out.println("----------------------------");			
 			System.out.println("MNEMONIC\tCLASStINFO");
 			System.out.println("----------------------------");			
@@ -110,7 +112,7 @@ class pass1
 			System.out.println("----------------------------");
 
 			//print literal table
-			System.out.println("\n\n   LITERAL TABLE	");
+			System.out.println("\n\n LITERAL TABLE");
 			System.out.println("-----------------");			
 			System.out.println("LITERAL\tADDRESS");
 			System.out.println("-----------------");			
