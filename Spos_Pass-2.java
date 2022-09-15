@@ -62,3 +62,59 @@ class Pass2 {
 	     b3.close();
 	}
 }
+
+/*
+OUTPUT:
+nehal@nehal:~/Desktop/nehal_SPOS/Turn1/A2$ javac Pass2.java 
+nehal@nehal:~/Desktop/nehal_SPOS/Turn1/A2$ java Pass2 
+nehal@neha:~/Desktop/nehal_SPOS/Turn1/A2$ cat Pass2.txt
+
+intermediate code - 
+(AD,01)(C,200)
+(IS,04)(1)(L,1)
+(IS,05)(1)(S,1)
+(IS,04)(1)(S,1)
+(IS,04)(3)(S,3)
+(IS,01)(3)(L,2)
+(IS,07)(6)(S,4)
+(DL,01)(C,5)
+(DL,01)(C,1)
+(IS,02)(1)(L,3)
+(IS,07)(1)(S,5)
+(IS,00)
+(AD,03)(S,2)+2
+(IS,03)(3)(S,3)
+(AD,03)(S,6)+1
+(DL,02)(C,1)
+(DL,02)(C,1)
+(AD,02)
+(DL,01)(C,1)
+
+Symbol Table --
+A			211			1
+LOOP			202			1
+B			212			1
+NEXT			208			1
+BACK			202			1
+LAST			210			1
+
+literal table --
+5		206
+1		207
+1		213
+
+
+machine code --
+
++ 04 1 206
++ 05 1 211
++ 04 1 211
++ 04 3 212
++ 01 3 207
++ 07 6 208
++ 00 0 005
++ 00 0 001
++ 02 1 213
++ 07 1 202
++ 00 0 000
++ 03 3 212     */
