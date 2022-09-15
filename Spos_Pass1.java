@@ -153,3 +153,80 @@ class pass1
 		    bufferedReader.close();
 	}
 }
+
+/*
+OUTPUT:-
+
+nehal@nehal:~/nehal_SPOS$ javac Spos_Pass1.java 
+neha@neha:~/nehal_SPOS$ java SymTab input.txt
+___________________________________________________
+	START	100	
+	READ	A	
+LABLE	MOVER	A,B	
+	LTORG	
+		='5'	
+		='1'	
+		='6'	
+		='7'	
+	MOVEM	A,B	
+	LTORG	
+		='2'	
+LOOP	READ	B	
+A	DS	1	
+B	DC	'1'	
+		='1'	
+	END	
+___________________________________________________
+
+
+	SYMBOL TABLE		
+--------------------------
+SYMBOL	ADDRESS	LENGTH
+--------------------------
+LABLE	102	1
+LOOP	111	1
+A	112	1
+B	113	1
+--------------------------
+
+
+	OPCODE TABLE		
+----------------------------
+MNEMONIC	CLASS	INFO
+----------------------------
+READ		IS	(04,1)
+MOVER		IS	(04,1)
+LTORG		AD	R11
+MOVEM		IS	(04,1)
+LTORG		AD	R11
+READ		IS	(04,1)
+DS		DL	R7
+DC		DL	R7
+END		AD	R11
+----------------------------
+
+
+   LITERAL TABLE		
+-----------------
+LITERAL	ADDRESS
+-----------------
+='5'	104
+='1'	105
+='6'	106
+='7'	107
+='2'	110
+='1'	114
+------------------
+
+
+   POOL TABLE		
+-----------------
+LITERAL NUMBER
+-----------------
+1
+5
+6
+------------------
+
+
+*/
