@@ -54,3 +54,31 @@
     
         }
     }
+
+/*
+OUTPUT :
+Localhost/127.0.0.1
+No of frame is:9
+30
+40
+50
+60
+70
+80
+90
+100
+110
+Received frame is: 30
+Received frame is: 40
+Received frame is: 50
+Received frame is: 60
+Received frame is: 70
+Received frame is: -1
+Received frame is: 90
+Received frame is: 100
+Received frame is: 110
+Request to retransmit packet no 6 again!!
+
+Received frame is: 80
+quiting
+*/
