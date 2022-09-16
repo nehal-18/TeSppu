@@ -66,3 +66,15 @@ int main(int argc, char** argv) {
     
     return 0;
 }
+
+/*
+OUTPUT :
+Enter the size of data bits: 4
+Enter the data bit: 1
+0
+1
+1
+
+Hamming code is: 0 1 1 0 0 1 1
+
+*/
