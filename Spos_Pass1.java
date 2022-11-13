@@ -1,3 +1,9 @@
+/*
+Problem Statement: Design suitable data structures and implement pass-I of a two-pass assembler for pseudo-
+machine in Java using object oriented feature. Implementation should consist of a few
+instructions from each category and few assembler directives.
+*/
+
 import java.io.*;
 
 class pass1
